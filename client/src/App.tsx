@@ -1113,7 +1113,7 @@ function HomePage() {
                Transforming raw multi-source data into actionable business intelligence through automated ETL pipelines, statistical analysis, and interactive KPI dashboards.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "2rem" }}>
-                {["SOL0", "Python", "Pandsa", "NumPy", "Power BI"].map((tech) => (
+                {["SQL", "Python", "Pandsa", "NumPy", "Power BI"].map((tech) => (
                   <span key={tech} className="font-mono" style={{ fontSize: "0.75rem", border: "1px solid rgba(255, 255, 255, 0.1)", padding: "0.375rem 0.75rem", borderRadius: "0.25rem", backgroundColor: "rgba(255, 255, 255, 0.02)", color: "#d1d5db" }}>
                     {tech}
                   </span>
