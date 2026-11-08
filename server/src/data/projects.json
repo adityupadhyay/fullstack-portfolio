@@ -1,0 +1,73 @@
+[
+  {
+    "id": "proj_1793163365131",
+    "title": "xcvxc",
+    "description": "cvxcv",
+    "category": "analyst",
+    "imageUrl": "",
+    "githubUrl": "https://gemini.google.com/",
+    "liveUrl": "https://gemini.google.com/",
+    "tags": [],
+    "createdAt": "2026-10-28T04:56:05.131Z"
+  },
+  {
+    "id": "proj_01",
+    "title": "POLICYGUARD AI",
+    "description": "An automated guardrail platform engineered for zero-trust cloud security policy analysis and continuous compliance. Features autonomous rule evaluation, automated risk scoring, and zero-day threat monitoring.",
+    "category": "analyst",
+    "tags": [
+      "FASTAPI",
+      "REACT.JS",
+      "DOCKER",
+      "AWS"
+    ],
+    "githubUrl": "https://github.com",
+    "liveUrl": "https://github.com",
+    "metrics": {
+      "function": "AI Policy Copilot",
+      "metricLabel": "LATENCY:",
+      "metricValue": "< 120ms",
+      "status": "Live Production"
+    }
+  },
+  {
+    "id": "proj_02",
+    "title": "SOFTWARE RELEASE RISK HEATMAP",
+    "description": "Full-stack production release risk management platform utilizing machine learning to analyze past commits, test coverage, and infrastructure logs to compute release failure probabilities.",
+    "category": "developer",
+    "tags": [
+      "NEXT.JS",
+      "PYTHON",
+      "REDIS",
+      "KUBERNETES"
+    ],
+    "githubUrl": "https://github.com",
+    "liveUrl": "https://github.com",
+    "metrics": {
+      "function": "CI/CD Predictive Risk",
+      "metricLabel": "ACCURACY:",
+      "metricValue": "94.8%",
+      "status": "Verified"
+    }
+  },
+  {
+    "id": "proj_03",
+    "title": "PAYMENT GATEWAY WITH HOSTED CHECKOUT",
+    "description": "End-to-end payment gateway infrastructure supporting merchant order processing, multi-currency conversion, cryptographic webhook verification, and zero double-charging transactions.",
+    "category": "developer",
+    "tags": [
+      "SPRING BOOT",
+      "POSTGRESQL",
+      "KAFKA",
+      "REDIS"
+    ],
+    "githubUrl": "https://github.com",
+    "liveUrl": "https://github.com",
+    "metrics": {
+      "function": "Real-Time Ledger",
+      "metricLabel": "UPTIME:",
+      "metricValue": "99.99%",
+      "status": "PCI-DSS Compliant"
+    }
+  }
+]
