@@ -1053,7 +1053,7 @@ function HomePage() {
       <section id="skills" style={{ padding: "6rem 1.5rem", maxWidth: "1280px", margin: "0 auto", borderTop: "1px solid rgba(255, 255, 255, 0.05)", position: "relative", zIndex: 10 }}>
         <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "3rem" }}>
           <span className="font-mono" style={{ color: "#eab308", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-            03 // TECH MATRIX
+             03 // TECH MATRIX
           </span>
           <h2 className="font-display" style={{ fontSize: "clamp(2.25rem, 5vw, 3rem)", textTransform: "uppercase", letterSpacing: "-0.025em", color: "#ffffff", margin: 0 }}>
             ARCHITECTURAL MASTERY. <span className="text-metallic-gold">PRECISION APPLIED.</span>
@@ -1065,13 +1065,13 @@ function HomePage() {
             <div>
               <span className="font-mono" style={{ fontSize: "0.75rem", color: "#eab308" }}>CORE PILLAR // 100% RESPONSIVE</span>
               <h4 className="font-display" style={{ fontSize: "1.5rem", color: "#ffffff", letterSpacing: "0.025em", marginTop: "0.25rem", marginBottom: "0.5rem" }}>
-                FRONTEND ARCHITECTURE
+                FULL-STACK DEVELOPMENT 
               </h4>
               <p style={{ fontSize: "0.875rem", color: "#9ca3af", marginBottom: "1.5rem", lineHeight: 1.5 }}>
-                Specialized in building high-performance client applications, custom component libraries, and immersive desktop/mobile interfaces.
+                Designing and deploying complete web platforms—from responsive, interactive client interfaces to robust REST/GraphQL APIs, secure authentication, and database schemas.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "2rem" }}>
-                {["React.js", "Next.js", "Tailwind CSS", "GSAP", "Framer Motion"].map((tech) => (
+                {["React.js", "Next.js", "Tailwind CSS", "Express PostgreSQL", "Framer Motion"].map((tech) => (
                   <span key={tech} className="font-mono" style={{ fontSize: "0.75rem", border: "1px solid rgba(255, 255, 255, 0.1)", padding: "0.375rem 0.75rem", borderRadius: "0.25rem", backgroundColor: "rgba(255, 255, 255, 0.02)", color: "#d1d5db" }}>
                     {tech}
                   </span>
@@ -1107,13 +1107,13 @@ function HomePage() {
             <div>
               <span className="font-mono" style={{ fontSize: "0.75rem", color: "#eab308" }}>HIGH CONCURRENCY // LOW LATENCY</span>
               <h4 className="font-display" style={{ fontSize: "1.5rem", color: "#ffffff", letterSpacing: "0.025em", marginTop: "0.25rem", marginBottom: "0.5rem" }}>
-                DISTRIBUTED BACKEND
+                DATA ANYLAST 
               </h4>
               <p style={{ fontSize: "0.875rem", color: "#9ca3af", marginBottom: "1.5rem", lineHeight: 1.5 }}>
-                Engineered RESTful APIs, JWT role-based access control, caching layers, and multi-tenant cloud microservices.
+               Transforming raw multi-source data into actionable business intelligence through automated ETL pipelines, statistical analysis, and interactive KPI dashboards.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "2rem" }}>
-                {["Node.js", "Python", "Docker", "Redis", "PostgreSQL"].map((tech) => (
+                {["SOL0", "Python", "Pandsa", "NumPy", "Power BI"].map((tech) => (
                   <span key={tech} className="font-mono" style={{ fontSize: "0.75rem", border: "1px solid rgba(255, 255, 255, 0.1)", padding: "0.375rem 0.75rem", borderRadius: "0.25rem", backgroundColor: "rgba(255, 255, 255, 0.02)", color: "#d1d5db" }}>
                     {tech}
                   </span>
@@ -1146,62 +1146,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ── SECTION 04: EXPERIENCE & MILESTONES ── */}
-      <section id="experience" style={{ padding: "6rem 1.5rem", maxWidth: "1280px", margin: "0 auto", borderTop: "1px solid rgba(255, 255, 255, 0.05)", position: "relative", zIndex: 10 }}>
-        <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "4rem" }}>
-          <span className="font-mono" style={{ color: "#eab308", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-            04 // EXPERIENCE
-          </span>
-          <h2 className="font-display" style={{ fontSize: "clamp(2.25rem, 5vw, 3rem)", textTransform: "uppercase", letterSpacing: "-0.025em", color: "#ffffff", margin: 0 }}>
-            EXPERIENCE & <span className="text-metallic-gold">MILESTONES.</span>
-          </h2>
-        </div>
-
-        <div style={{ position: "relative", borderLeft: "2px solid rgba(212, 175, 55, 0.3)", marginLeft: "2rem", display: "flex", flexDirection: "column", gap: "3rem" }}>
-          <div className="timeline-item" style={{ position: "relative", paddingLeft: "2rem" }}>
-            <div style={{ position: "absolute", left: "-9px", top: "0.375rem", width: "1rem", height: "1rem", borderRadius: "50%", backgroundColor: "#eab308", boxShadow: "0 0 15px #D4AF37" }} />
-            <span className="font-mono" style={{ fontSize: "0.75rem", color: "#eab308", letterSpacing: "0.05em" }}>2026 — PRESENT</span>
-            <h4 className="font-display" style={{ fontSize: "1.5rem", color: "#ffffff", marginTop: "0.25rem", margin: 0 }}>
-              FULL STACK & AI DATA ANALYTICS INTERN
-            </h4>
-            <p className="font-mono" style={{ fontSize: "0.75rem", color: "#9ca3af", margin: 0 }}>
-              InAmigos Foundation & Handshake AI
-            </p>
-            <p style={{ fontSize: "0.875rem", color: "#9ca3af", marginTop: "0.5rem", maxWidth: "36rem", lineHeight: 1.5, margin: 0 }}>
-              Architected data evaluation systems and machine learning terminal-based tools. Evaluated terminal AI outputs and streamlined real-time response validation.
-            </p>
-          </div>
-
-          <div className="timeline-item" style={{ position: "relative", paddingLeft: "2rem" }}>
-            <div style={{ position: "absolute", left: "-9px", top: "0.375rem", width: "1rem", height: "1rem", borderRadius: "50%", backgroundColor: "#eab308", boxShadow: "0 0 15px #D4AF37" }} />
-            <span className="font-mono" style={{ fontSize: "0.75rem", color: "#eab308", letterSpacing: "0.05em" }}>2025 — 2026</span>
-            <h4 className="font-display" style={{ fontSize: "1.5rem", color: "#ffffff", marginTop: "0.25rem", margin: 0 }}>
-              INTERNSHALA STUDENT PARTNER & STEM INNOVATION
-            </h4>
-            <p className="font-mono" style={{ fontSize: "0.75rem", color: "#9ca3af", margin: 0 }}>
-              Stemrobo & ElevanceSkills
-            </p>
-            <p style={{ fontSize: "0.875rem", color: "#9ca3af", marginTop: "0.5rem", maxWidth: "36rem", lineHeight: 1.5, margin: 0 }}>
-              Completed industrial web development tracks, led peer cohorts in hands-on generative AI integration, and delivered full-stack architectures.
-            </p>
-          </div>
-
-          <div className="timeline-item" style={{ position: "relative", paddingLeft: "2rem" }}>
-            <div style={{ position: "absolute", left: "-9px", top: "0.375rem", width: "1rem", height: "1rem", borderRadius: "50%", backgroundColor: "#eab308", boxShadow: "0 0 15px #D4AF37" }} />
-            <span className="font-mono" style={{ fontSize: "0.75rem", color: "#eab308", letterSpacing: "0.05em" }}>2024 — PRESENT</span>
-            <h4 className="font-display" style={{ fontSize: "1.5rem", color: "#ffffff", marginTop: "0.25rem", margin: 0 }}>
-              BACHELOR OF COMPUTER APPLICATIONS
-            </h4>
-            <p className="font-mono" style={{ fontSize: "0.75rem", color: "#9ca3af", margin: 0 }}>
-              Dr. Bhimrao Ambedkar University
-            </p>
-            <p style={{ fontSize: "0.875rem", color: "#9ca3af", marginTop: "0.5rem", maxWidth: "36rem", lineHeight: 1.5, margin: 0 }}>
-              Specializing in Object-Oriented Software Design, Data Structures, Modern Web Architecture, and Distributed Database Management.
-            </p>
-          </div>
-        </div>
-      </section>
+          
 
       {/* ── SECTION 05: TRANSMISSION ── */}
       <section id="contact" style={{ padding: "6rem 1.5rem", maxWidth: "1280px", margin: "0 auto", borderTop: "1px solid rgba(255, 255, 255, 0.05)", position: "relative", zIndex: 10 }}>
