@@ -22,6 +22,13 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Direct fallback to your live Render backend when deployed on Vercel
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  (typeof window !== "undefined" && window.location.hostname === "localhost"
+    ? "http://localhost:5000/api"
+    : "https://fullstack-portfolio-2gkn.onrender.com/api");
+
 interface Project {
   id: string;
   title: string;
@@ -136,13 +143,13 @@ function HomePage() {
 
   const fetchAdminProjects = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/projects");
+      const res = await fetch(`${API_BASE}/projects`);
       const data = await res.json();
       if (res.ok && data.status === "success") {
         setAdminProjects(data.data);
       }
     } catch {
-      // Backend offline fallback
+      // Offline fallback
     }
   };
 
@@ -283,7 +290,7 @@ function HomePage() {
 
   const fetchMessages = async (key: string = adminKey) => {
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+      const res = await fetch(`${API_BASE}/contact`, {
         headers: { "x-admin-key": key },
       });
       const data = await res.json();
@@ -299,7 +306,7 @@ function HomePage() {
     e.preventDefault();
     setAdminError("");
     try {
-      const res = await fetch("http://localhost:5000/api/admin/verify", {
+      const res = await fetch(`${API_BASE}/admin/verify`, {
         method: "POST",
         headers: { "x-admin-key": adminKey },
       });
@@ -387,7 +394,7 @@ function HomePage() {
           metrics: metricsObj,
         };
 
-        const res = await fetch(`http://localhost:5000/api/projects/${editingProjectId}`, {
+        const res = await fetch(`${API_BASE}/projects/${editingProjectId}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -418,7 +425,7 @@ function HomePage() {
           formData.append("imageFile", selectedFile);
         }
 
-        const res = await fetch("http://localhost:5000/api/projects", {
+        const res = await fetch(`${API_BASE}/projects`, {
           method: "POST",
           headers: { "x-admin-key": adminKey },
           body: formData,
@@ -429,11 +436,7 @@ function HomePage() {
           throw new Error(data.message || "Failed to deploy project");
         }
 
-        setAdminSuccess(
-          `Project successfully deployed to the ${
-            newCategory === "developer" ? "Developer (/developer)" : "Data Analyst (/analyst)"
-          } track!`
-        );
+        setAdminSuccess("Project deployed successfully!");
         resetProjectForm();
         fetchAdminProjects();
       }
@@ -447,7 +450,7 @@ function HomePage() {
   const handleDeleteProject = async (id: string) => {
     if (!confirm("Are you sure you want to delete this project?")) return;
     try {
-      await fetch(`http://localhost:5000/api/projects/${id}`, {
+      await fetch(`${API_BASE}/projects/${id}`, {
         method: "DELETE",
         headers: { "x-admin-key": adminKey },
       });
@@ -461,15 +464,15 @@ function HomePage() {
   const handleDeleteMessage = async (id: string) => {
     if (!confirm("Purge this transmission from records?")) return;
     try {
-      await fetch(`http://localhost:5000/api/contact/${id}`, {
+      await fetch(`${API_BASE}/contact/${id}`, {
         method: "DELETE",
         headers: { "x-admin-key": adminKey },
       });
 
       setMessages((prev) => prev.filter((m) => m.id !== id));
-      setAdminSuccess("Transmission record successfully deleted.");
+      setAdminSuccess("Transmission record deleted.");
       setTimeout(() => setAdminSuccess(""), 3000);
-    } catch (err) {
+    } catch {
       setAdminError("Failed to delete transmission record.");
     }
   };
@@ -478,7 +481,7 @@ function HomePage() {
     e.preventDefault();
     setContactStatus("submitting");
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+      const res = await fetch(`${API_BASE}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -498,7 +501,7 @@ function HomePage() {
         setContactStatus("idle");
       }
     } catch {
-      alert("Backend offline. Please start http://localhost:5000");
+      alert("Backend offline or waking up. Please try again in 30 seconds.");
       setContactStatus("idle");
     }
   };
@@ -839,7 +842,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ── SECTION 01: ABOUT ME & STATS ── */}
+      {/* ── SECTION 01: ABOUT ME ── */}
       <section id="about" style={{ padding: "6rem 1.5rem", maxWidth: "1280px", margin: "0 auto", borderTop: "1px solid rgba(255, 255, 255, 0.05)", position: "relative", zIndex: 10 }}>
         <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "3rem" }}>
           <span className="font-mono" style={{ color: "#eab308", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
@@ -857,7 +860,7 @@ function HomePage() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem" }}>
           <div style={{ padding: "1.5rem", borderRadius: "0.5rem", border: "1px solid rgba(255, 255, 255, 0.1)", backgroundColor: "rgba(255, 255, 255, 0.02)" }}>
             <p className="font-display text-metallic-gold" style={{ fontSize: "3rem", margin: 0 }}>
-              <span className="counter" data-target="600">0</span>+
+              <span className="counter" data-target="1200">0</span>+
             </p>
             <p className="font-mono" style={{ fontSize: "0.75rem", color: "#9ca3af", marginTop: "0.5rem", margin: 0 }}>
               DSA QUESTIONS SOLVED
@@ -866,7 +869,7 @@ function HomePage() {
 
           <div style={{ padding: "1.5rem", borderRadius: "0.5rem", border: "1px solid rgba(255, 255, 255, 0.1)", backgroundColor: "rgba(255, 255, 255, 0.02)" }}>
             <p className="font-display text-metallic-gold" style={{ fontSize: "3rem", margin: 0 }}>
-              <span className="counter-float" data-target="8.5">0.00</span>
+              <span className="counter-float" data-target="9.07">0.00</span>
             </p>
             <p className="font-mono" style={{ fontSize: "0.75rem", color: "#9ca3af", marginTop: "0.5rem", margin: 0 }}>
               ACADEMIC CGPA
@@ -1046,7 +1049,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ── SECTION 03: TECH MATRIX (SKILLS) ── */}
+      {/* ── SECTION 03: TECH MATRIX ── */}
       <section id="skills" style={{ padding: "6rem 1.5rem", maxWidth: "1280px", margin: "0 auto", borderTop: "1px solid rgba(255, 255, 255, 0.05)", position: "relative", zIndex: 10 }}>
         <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "3rem" }}>
           <span className="font-mono" style={{ color: "#eab308", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
@@ -1062,13 +1065,13 @@ function HomePage() {
             <div>
               <span className="font-mono" style={{ fontSize: "0.75rem", color: "#eab308" }}>CORE PILLAR // 100% RESPONSIVE</span>
               <h4 className="font-display" style={{ fontSize: "1.5rem", color: "#ffffff", letterSpacing: "0.025em", marginTop: "0.25rem", marginBottom: "0.5rem" }}>
-                FULL-STACK DEVELOPMENT 
+                FRONTEND ARCHITECTURE
               </h4>
               <p style={{ fontSize: "0.875rem", color: "#9ca3af", marginBottom: "1.5rem", lineHeight: 1.5 }}>
-                Designing and deploying complete web platforms—from responsive, interactive client interfaces to robust REST/GraphQL APIs, secure authentication, and database schemas.
+                Specialized in building high-performance client applications, custom component libraries, and immersive desktop/mobile interfaces.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "2rem" }}>
-                {["React.js", "Next.js", "Tailwind CSS", "Express PostgreSQL", "Framer Motion"].map((tech) => (
+                {["React.js", "Next.js", "Tailwind CSS", "GSAP", "Framer Motion"].map((tech) => (
                   <span key={tech} className="font-mono" style={{ fontSize: "0.75rem", border: "1px solid rgba(255, 255, 255, 0.1)", padding: "0.375rem 0.75rem", borderRadius: "0.25rem", backgroundColor: "rgba(255, 255, 255, 0.02)", color: "#d1d5db" }}>
                     {tech}
                   </span>
@@ -1104,13 +1107,13 @@ function HomePage() {
             <div>
               <span className="font-mono" style={{ fontSize: "0.75rem", color: "#eab308" }}>HIGH CONCURRENCY // LOW LATENCY</span>
               <h4 className="font-display" style={{ fontSize: "1.5rem", color: "#ffffff", letterSpacing: "0.025em", marginTop: "0.25rem", marginBottom: "0.5rem" }}>
-                DATA ANYLAST 
+                DISTRIBUTED BACKEND
               </h4>
               <p style={{ fontSize: "0.875rem", color: "#9ca3af", marginBottom: "1.5rem", lineHeight: 1.5 }}>
-               Transforming raw multi-source data into actionable business intelligence through automated ETL pipelines, statistical analysis, and interactive KPI dashboards.
+                Engineered RESTful APIs, JWT role-based access control, caching layers, and multi-tenant cloud microservices.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "2rem" }}>
-                {["SOL0", "Python", "Pandsa", "NumPy", "Power BI"].map((tech) => (
+                {["Node.js", "Python", "Docker", "Redis", "PostgreSQL"].map((tech) => (
                   <span key={tech} className="font-mono" style={{ fontSize: "0.75rem", border: "1px solid rgba(255, 255, 255, 0.1)", padding: "0.375rem 0.75rem", borderRadius: "0.25rem", backgroundColor: "rgba(255, 255, 255, 0.02)", color: "#d1d5db" }}>
                     {tech}
                   </span>
@@ -1368,7 +1371,7 @@ function HomePage() {
         </button>
       </footer>
 
-      {/* ── NEU-OS ADMIN MODAL ── */}
+      {/* ── NEU-OS CONTROL CONSOLE ── */}
       {isAdminOpen && (
         <div style={{ position: "fixed", inset: 0, zIndex: 50, backgroundColor: "rgba(0,0,0,0.85)", backdropFilter: "blur(12px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}>
           <div style={{ width: "100%", maxWidth: "44rem", backgroundColor: "#0e1014", border: "1px solid rgba(212, 175, 55, 0.4)", borderRadius: "1rem", overflow: "hidden", display: "flex", flexDirection: "column", maxHeight: "90vh", boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)" }}>
@@ -1623,7 +1626,7 @@ function HomePage() {
                             </>
                           ) : (
                             <>
-                              <Plus size={16} /> DEPLOY TO {newCategory === "developer" ? "DEVELOPER" : "ANALYST"} TRACK
+                              <Plus size={16} /> DEPLOY DELIVERABLE
                             </>
                           )}
                         </button>

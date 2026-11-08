@@ -18,7 +18,12 @@ export const AnalystPage: React.FC = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const apiBase = import.meta.env.PROD ? "/api" : "http://localhost:5000/api";
+        const apiBase =
+          import.meta.env.VITE_API_URL ||
+          (typeof window !== "undefined" && window.location.hostname === "localhost"
+            ? "http://localhost:5000/api"
+            : "https://fullstack-portfolio-2gkn.onrender.com/api");
+
         const res = await fetch(`${apiBase}/projects`);
         const data = await res.json();
         if (res.ok && data.status === "success" && data.data.length > 0) {
@@ -29,7 +34,7 @@ export const AnalystPage: React.FC = () => {
           }
         }
       } catch {
-        // Fallback
+        // Fallback below
       }
 
       setProjects([
