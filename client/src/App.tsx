@@ -62,7 +62,7 @@ const FEATURED_HOMEPAGE_PROJECTS: Project[] = [
       "An automated guardrail platform engineered for zero-trust cloud security policy analysis and continuous compliance. Features autonomous rule evaluation, automated risk scoring, and zero-day threat monitoring.",
     category: "analyst",
     tags: ["FASTAPI", "REACT.JS", "DOCKER", "AWS"],
-    githubUrl: "#",
+    githubUrl:"https://bespoke-shortbread-966af6.netlify.app/" ,
     liveUrl: "#",
     metrics: {
       function: "AI Policy Copilot",
@@ -78,7 +78,7 @@ const FEATURED_HOMEPAGE_PROJECTS: Project[] = [
       "Full-stack production release risk management platform utilizing machine learning to analyze past commits, test coverage, and infrastructure logs to compute release failure probabilities.",
     category: "developer",
     tags: ["NEXT.JS", "PYTHON", "REDIS", "KUBERNETES"],
-    githubUrl: "#",
+    githubUrl: "https://bespoke-shortbread-966af6.netlify.app/",
     liveUrl: "#",
     metrics: {
       function: "CI/CD Predictive Risk",
@@ -94,7 +94,7 @@ const FEATURED_HOMEPAGE_PROJECTS: Project[] = [
       "End-to-end payment gateway infrastructure supporting merchant order processing, multi-currency conversion, cryptographic webhook verification, and zero double-charging transactions.",
     category: "developer",
     tags: ["SPRING BOOT", "POSTGRESQL", "KAFKA", "REDIS"],
-    githubUrl: "#",
+    githubUrl: "https://bespoke-shortbread-966af6.netlify.app/",
     liveUrl: "#",
     metrics: {
       function: "Real-Time Ledger",
