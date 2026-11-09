@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get("/", getProjects);
 router.post("/", createProject);
-router.put("/:id", updateProject); // <--- Make sure this line exists!
+router.put("/:id", updateProject);
 router.delete("/:id", deleteProject);
 
 export default router;
