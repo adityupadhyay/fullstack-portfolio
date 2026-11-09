@@ -63,7 +63,7 @@ const FEATURED_HOMEPAGE_PROJECTS: Project[] = [
     category: "analyst",
     tags: ["FASTAPI", "REACT.JS", "DOCKER", "AWS"],
     githubUrl:"https://bespoke-shortbread-966af6.netlify.app/" ,
-    liveUrl: "#",
+    liveUrl: "https://bespoke-shortbread-966af6.netlify.app/",
     metrics: {
       function: "AI Policy Copilot",
       metricLabel: "LATENCY:",
@@ -79,7 +79,7 @@ const FEATURED_HOMEPAGE_PROJECTS: Project[] = [
     category: "developer",
     tags: ["NEXT.JS", "PYTHON", "REDIS", "KUBERNETES"],
     githubUrl: "https://bespoke-shortbread-966af6.netlify.app/",
-    liveUrl: "#",
+    liveUrl: "https://bespoke-shortbread-966af6.netlify.app/",
     metrics: {
       function: "CI/CD Predictive Risk",
       metricLabel: "ACCURACY:",
@@ -95,7 +95,7 @@ const FEATURED_HOMEPAGE_PROJECTS: Project[] = [
     category: "developer",
     tags: ["SPRING BOOT", "POSTGRESQL", "KAFKA", "REDIS"],
     githubUrl: "https://bespoke-shortbread-966af6.netlify.app/",
-    liveUrl: "#",
+    liveUrl: "https://bespoke-shortbread-966af6.netlify.app/",
     metrics: {
       function: "Real-Time Ledger",
       metricLabel: "UPTIME:",
